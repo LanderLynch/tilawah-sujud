@@ -1,0 +1,9 @@
+/*
+ * Placeholder for the original Tailwind entry (was `@tailwind base/components/utilities`
+ * plus this project's theme tokens and custom utilities).
+ *
+ * The shipped app already includes the compiled result in `static/css/main.css`, and that
+ * file is what `index.html` links. Keep this file only so the `@/index.css` import resolves
+ * when bundling `src/`. Rebuilding the styles would require the original Tailwind config,
+ * which was not part of the published bundle.
+ */
