@@ -31,7 +31,6 @@ const AyatCard = ({ a, i, hoverSurah, setHoverSurah, onOpen }) => {
       layout
       initial={{ opacity: 0, y: 30, scale: 0.96 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.8, delay: (i % 5) * 0.06 + Math.floor(i / 5) * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="perspective"
     >
       <div
         role="button" tabIndex={0} aria-pressed={flipped}
@@ -41,9 +40,12 @@ const AyatCard = ({ a, i, hoverSurah, setHoverSurah, onOpen }) => {
         onPointerEnter={(e) => { if (e.pointerType === "mouse") { setHover(true); setHoverSurah(a.surah); } }}
         onPointerLeave={(e) => { if (e.pointerType === "mouse") { setHover(false); setHoverSurah(null); } }}
         data-testid={`ayat-card-${a.no}`}
-        className={`preserve-3d relative h-48 w-full cursor-pointer rounded-2xl transition-transform duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] sm:h-52 ${flipped ? "rotate-y-180" : ""}`}
+        className="relative cursor-pointer"
+        style={{ padding: 6, margin: -6 }}
       >
-        <div className={`backface-hidden card-base absolute inset-0 flex flex-col justify-between p-5 transition-[box-shadow,border-color] duration-500 ${sibling ? "border-gold shadow-[0_0_0_3px_rgba(200,160,74,0.35),0_0_30px_rgba(200,160,74,0.45)]" : ""}`}>
+        <div className="perspective h-48 w-full sm:h-52">
+          <div className={`preserve-3d relative h-full w-full rounded-2xl transition-transform duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${flipped ? "rotate-y-180" : ""}`}>
+            <div className={`backface-hidden card-base absolute inset-0 flex flex-col justify-between p-5 transition-[box-shadow,border-color] duration-500 ${sibling ? "border-gold shadow-[0_0_0_3px_rgba(200,160,74,0.35),0_0_30px_rgba(200,160,74,0.45)]" : ""}`}>
           <div className="flex items-start justify-between">
             <span className="text-4xl font-black leading-none text-transparent [-webkit-text-stroke:1.5px_#C8A04A]">{String(a.no).padStart(2, "0")}</span>
             <span className="font-arab text-2xl leading-none text-gold" aria-hidden>۩</span>
@@ -75,6 +77,8 @@ const AyatCard = ({ a, i, hoverSurah, setHoverSurah, onOpen }) => {
               <Eye size={14} /> Lihat arti
             </button>
           ) : <span className="h-px w-10 bg-gold/50" />}
+            </div>
+          </div>
         </div>
       </div>
     </motion.div>
