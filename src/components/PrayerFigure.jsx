@@ -3,7 +3,7 @@ import { doa } from "../data/content";
 
 export const ZERO = { foot: 0, ankle: 0, knee: 0, hip: 0, neck: 0, shoulder: 0, elbow: 0, wrist: 0 };
 export const KNEEL = { foot: 65, ankle: 37.9, knee: -107.8, hip: 22.9, neck: 12.2, shoulder: -58, elbow: -30, wrist: -10 };
-export const SUJUD = { foot: 65, ankle: 37.9, knee: -112.8, hip: 124.9, neck: 47.5, shoulder: -202.3, elbow: 84.4, wrist: -87.1 };
+export const SUJUD = { foot: 65, ankle: 37.9, knee: -112.8, hip: 124.9, neck: 47.5, shoulder: -81, elbow: -110, wrist: 0 };
 
 // Titik pivot sendi (koordinat pose berdiri)
 const PIVOTS = {
@@ -103,7 +103,7 @@ const PrayerFigure = forwardRef(function PrayerFigure(_, ref) {
       <p
         ref={ov("doa")}
         lang="ar" dir="rtl"
-        className="arab pointer-events-none absolute inset-x-4 top-3 text-center text-[22px] text-gold-300 opacity-0 sm:text-3xl lg:text-[34px]"
+        className="arab pointer-events-none absolute inset-x-4 top-16 text-center text-[22px] text-gold-300 opacity-0 sm:text-3xl lg:text-[34px]"
         style={{ textShadow: "0 0 24px rgba(224,194,126,0.6)" }}
         data-testid="prayer-doa-overlay"
       >

@@ -2,14 +2,15 @@
   "name": "tilawah-sujud",
   "private": true,
   "version": "1.0.0",
-  "description": "Ayat Sajadah · Sujud Tilawah — recovered React source plus an esbuild build that emits static/js/main.js.",
+  "description": "Ayat Sajadah · Sujud Tilawah (React + Vite + Tailwind)",
   "scripts": {
-    "build": "node build.mjs"
+    "dev": "vite",
+    "preview": "vite preview",
+    "build": "vite build"
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
     "@radix-ui/react-dialog": "^1.1.2",
-    "@tanstack/react-query": "^5.59.16",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.9",
     "gsap": "^3.12.5",
@@ -21,6 +22,12 @@
     "vanilla-tilt": "^1.8.1"
   },
   "devDependencies": {
-    "esbuild": "^0.24.0"
-  }
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.6.2",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^3.4.17",
+    "tailwindcss-animate": "^1.0.7",
+    "vite": "^5.4.21"
+  },
+  "type": "commonjs"
 }

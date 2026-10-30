@@ -1,9 +1,47 @@
-/*
- * Placeholder for the original Tailwind entry (was `@tailwind base/components/utilities`
- * plus this project's theme tokens and custom utilities).
- *
- * The shipped app already includes the compiled result in `static/css/main.css`, and that
- * file is what `index.html` links. Keep this file only so the `@/index.css` import resolves
- * when bundling `src/`. Rebuilding the styles would require the original Tailwind config,
- * which was not part of the published bundle.
- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 98%;
+    --foreground: 215 64% 21%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 40 53% 54%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 64% 21%;
+    --muted: 220 30% 95%;
+    --muted-foreground: 220 14% 41%;
+    --radius: 1rem;
+  }
+  html { @apply font-sans; }
+  body { @apply bg-cream font-sans text-navy antialiased overflow-x-hidden; }
+  h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; }
+  ::selection { background: #C8A04A; color: #0E2243; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .arab { font-family: Amiri, serif; line-height: 2.1; }
+}
+
+@layer components {
+  .card-base { @apply rounded-2xl border border-slate-200 bg-white shadow-[0_10px_30px_-18px_rgba(20,48,90,0.35)]; }
+  .note-box { @apply rounded-2xl bg-sky-note px-6 py-5 italic text-sky-ink; }
+  .icon-ring { @apply flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-navy text-gold; }
+  .eyebrow { @apply text-[11px] font-semibold uppercase tracking-[0.35em] text-gold-600; }
+}
+
+@layer utilities {
+  .perspective { perspective: 1200px; }
+  .preserve-3d { transform-style: preserve-3d; }
+  .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+  .rotate-y-180 { transform: rotateY(180deg); }
+  .grain::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: overlay; opacity: .07;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}
