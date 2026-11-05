@@ -16,6 +16,7 @@ export const anggota = [
   { nama: "Siska Amanda", nim: "2661201008" },
   { nama: "Amon Setiadi", nim: "2661201080" },
   { nama: "Salman Al Farizi", nim: "2661201078" },
+  { nama: "Rumpoko eko", nim: "" },
 ];
 
 export const sections = [
